@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/new', to: 'users#new', as: 'new_user'
+  get '/signup', to: redirect('users/new')  #by doing this we can use /signup to redirect people to 'users/new'
+  resources :users, only: [:create]  #because we only need create route
+
   root to: "products#index"
 
   resources :products
