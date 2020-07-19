@@ -15,12 +15,20 @@
           <li class="nav-item">
             <%= link_to 'New Product', new_product_path, class: "nav-link" %>
           </li>
+          <% unless current_user %>
           <li class="nav-item">
-            <%= link_to 'Sign In',"login.html", class: "nav-link"  %>
+            <%= link_to 'Sign In',signin_path,class: "nav-link"  %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Sign Up',"register.html", class: "nav-link"  %>
+            <%= link_to 'Sign Up',signup_path, class: "nav-link"  %>
           </li>
+          <%else%>
+          <!-- the default action for a link_to is a GET request! remember that. So if you want to use DELETE action, need to be specific. -->
+           <li class="nav-item">
+            <%= link_to 'Sign Out',session_path, method: :delete, class: "nav-link"  %>
+          </li>
+          <%end%>
+          <!-- extra: if you want a simple back link, <%= link_to "Back", :back %> -->
         </ul>
       </div>
     </nav>
