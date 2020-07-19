@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
   get 'users/new', to: 'users#new', as: 'new_user'
-  get '/signup', to: redirect('users/new')  #by doing this we can use /signup to redirect people to 'users/new'
+  # get '/signup', to: redirect('users/new')  #by doing this we can use /signup to redirect people to 'users/new'
+  get '/signup', to: 'users#new'  #dont really need to redirect 
+  get '/signin', to: 'sessions#new'
+  post '/signin', to: 'sessions#create'
+  delete '/signout', to: 'sessions#destroy', as: 'session'
+
   resources :users, only: [:create]  #because we only need create route
 
   root to: "products#index"
