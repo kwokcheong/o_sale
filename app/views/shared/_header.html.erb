@@ -27,6 +27,9 @@
            <li class="nav-item">
             <%= link_to 'Sign Out',session_path, method: :delete, class: "nav-link"  %>
           </li>
+          <li class="nav-item">
+            <p class="navbar-text" style="color: white">Welcome, <%= current_user.first_name %></p>
+          </li>
           <%end%>
           <!-- extra: if you want a simple back link, <%= link_to "Back", :back %> -->
         </ul>
