@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
 
+    before_action :require_signin, except: [:index, :show]
     before_action :find_product, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -60,6 +61,6 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-        params.require(:product).permit(:name, :price, :description, :image)
+        params.require(:product).permit(:name, :price, :description, :image, :quantity)
     end
 end

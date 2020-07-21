@@ -17,20 +17,36 @@
 #     {name: "Name 3", description: "Description 1", price: 50.99}
 # ])
 
+User.create!(
+    [
+        {first_name: 'John', last_name: 'Doe', email: 'john@example.com', password: 'password'},
+        {first_name: 'Jane', last_name: 'Doe', email: 'jane@example.com', password: 'password'}
+    ]
+)
+
+john = User.first
+jane = User.last
+
 product = Product.create([
     {
     name: 'SteelSeries',
     description: 'Lorem ipsum dolor sit amet,consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    price: 99.99
+    price: 99.99,
+    quantity: 5,
+    user_id: john.id
     },
     {
     name: 'Razer',
     description: 'Lorem ipsum dolor sit amet,consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    price: 57.99
+    price: 57.99,
+    quantity: 9,
+    user_id: john.id
     },
     {
     name: 'Corsair',
     description: 'Lorem ipsum dolor sit amet,consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    price: 38.99
+    price: 38.99,
+    quantity: 5,
+    user_id: jane.id
     }
 ])
