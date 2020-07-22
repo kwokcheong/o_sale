@@ -11,5 +11,9 @@ class Product < ApplicationRecord
     }
 
     belongs_to :user
+
+    def owned_by?(owner)
+        user == owner
+    end
 end
 
