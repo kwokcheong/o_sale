@@ -27,7 +27,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-group :production 
+group :production do
   gem 'pg'
 end
 
