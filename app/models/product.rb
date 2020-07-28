@@ -11,6 +11,7 @@ class Product < ApplicationRecord
     }
 
     belongs_to :user
+    has_many :comments, dependent: :destroy
 
     def owned_by?(owner)
         user == owner

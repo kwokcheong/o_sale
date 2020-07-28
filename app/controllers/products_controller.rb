@@ -11,6 +11,10 @@ class ProductsController < ApplicationController
     def show
         #why :id? this is a hash, params = {id: 2}
         # @product = Product.find(params[:id])
+
+        #build is like new method
+        @comment = @product.comments.build
+        @comments = @product.comments
     end
 
     def new
